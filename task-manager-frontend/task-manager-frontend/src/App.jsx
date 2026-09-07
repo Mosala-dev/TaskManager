@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { api } from './api'
 
 const STATUS = {
@@ -48,14 +49,24 @@ function App() {
   }
 
   if (!user) {
-    return page === 'register' ? (
-      <RegisterPage onLogin={() => setPage('login')} onSuccess={handleAuthSuccess} />
-    ) : (
-      <LoginPage onRegister={() => setPage('register')} onSuccess={handleAuthSuccess} />
+    return (
+      <>
+        {page === 'register' ? (
+          <RegisterPage onLogin={() => setPage('login')} onSuccess={handleAuthSuccess} />
+        ) : (
+          <LoginPage onRegister={() => setPage('register')} onSuccess={handleAuthSuccess} />
+        )}
+        <Analytics />
+      </>
     )
   }
 
-  return <Dashboard user={user} onLogout={logout} />
+  return (
+    <>
+      <Dashboard user={user} onLogout={logout} />
+      <Analytics />
+    </>
+  )
 }
 
 function LoginPage({ onRegister, onSuccess }) {
