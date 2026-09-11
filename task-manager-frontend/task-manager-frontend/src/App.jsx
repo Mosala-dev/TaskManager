@@ -207,7 +207,7 @@ function AuthLayout({ title, subtitle, children, footer }) {
       <section className="auth-brand-panel">
         <div className="brand-mark">✓</div>
         <div>
-          <p className="eyebrow">EncoderX • Full Stack Development</p>
+          <p className="eyebrow">Mohlabi Mosala • Full Stack Development</p>
           <h1>Task Manager</h1>
           <p>Plan your work, track progress, and finish what matters.</p>
         </div>
